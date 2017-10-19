@@ -8,15 +8,15 @@ public class SpamController
 	
 	public void beginSpam()
 	{
+		//Local variables
 		int numOfSpammers = 1;
 		int previousSpammers = 0;
-		int spammerLimit = 25;
+		int spammerLimit = 12;
+		boolean closedBrowsers = false;
 		
 		//Create the initial arrays
 		Spammer[] spammers = new Spammer[numOfSpammers];
 		Thread[] threads = new Thread[numOfSpammers];
-		
-		boolean closedBrowsers = false;
 		
 		while (numOfSpammers <= spammerLimit)
 		{
@@ -32,7 +32,7 @@ public class SpamController
 					//Create Spammer(total, index)
 					spammers[i] = new Spammer(numOfSpammers, i);
 					
-					//Create threads for each Spammer
+					//Create a thread for each Spammer
 					threads[i] = new Thread(spammers[i]);
 				}
 				
@@ -46,14 +46,10 @@ public class SpamController
 				previousSpammers = numOfSpammers;
 			}
 			
+			//Check to see if each thread is still alive and that each browser is still open
 			for (int k = 0; k < numOfSpammers; k++)
-			{				
-				//Check to see if each thread is still alive and that each browser is still open
 				if (!threads[k].isAlive() || !spammers[k].isAlive())
-				{
 					closedBrowsers = true;
-				}
-			}
 			
 			//If any browsers were closed (or threads died), increase the total by 1
 			if (closedBrowsers)

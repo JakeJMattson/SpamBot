@@ -55,7 +55,6 @@ public class Spammer implements Runnable
 		}
 		catch (IOException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -81,30 +80,20 @@ public class Spammer implements Runnable
 		Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
 		double widthOfScreen = screenSize.getWidth(), heightOfScreen = screenSize.getHeight();
 		double browserWidth, browserHeight;
-		int widthSlot = 0, heightSlot = 0, numOfRows = 1, lastRow, browsersPerRow = 0;
+		int widthSlot = 0, heightSlot = 0, numOfRows, lastRow, browsersPerRow;
 		Point browserPosition;
-
+ 
 		//Determine number of rows
-		for (int i = 0; i < 10; i++)
-			if (totalBrowsers >= Math.pow(i, 2))
-				numOfRows = i;
+		numOfRows = (int)Math.sqrt(totalBrowsers);
 		
 		//Determine number of browsers in each row
-		if (numOfRows == 1)
-			browsersPerRow = totalBrowsers;
-		else
-			browsersPerRow = (int) Math.ceil((double)totalBrowsers / numOfRows);
-		
-		//Determine height slot
-		for (int i = 1; i < numOfRows; i++)
-			if (browserIndex + 1 > (i * browsersPerRow))
-				heightSlot++;
+		browsersPerRow = (int) Math.ceil((double)totalBrowsers / numOfRows);
 		
 		//Determine number of browsers in last row
-		lastRow = totalBrowsers % browsersPerRow;
-		
-		if (lastRow == 0)
+		if (totalBrowsers == browsersPerRow)
 			lastRow = browsersPerRow;
+		else
+			lastRow = totalBrowsers % browsersPerRow;
 		
 		//Determine size
 		if (browserIndex + 1 > (totalBrowsers - lastRow))
@@ -115,11 +104,11 @@ public class Spammer implements Runnable
 		browserHeight = heightOfScreen/numOfRows;
 		
 		//Set size
-		bot.manage().window().setSize(new Dimension((int)browserWidth,(int) browserHeight));
+		bot.manage().window().setSize(new Dimension((int)browserWidth, (int)browserHeight));
 		
 		//Determine position
 		widthSlot = (int) (browserWidth * (browserIndex % browsersPerRow));
-		heightSlot = (int) (browserHeight * heightSlot);
+		heightSlot = (int) (browserHeight * (browserIndex / browsersPerRow));
 		
 		//Set position
 		browserPosition = new Point(widthSlot, heightSlot);
@@ -147,7 +136,7 @@ public class Spammer implements Runnable
 	        bot.getCurrentUrl();
 	        return false;
 	    } 
-	    catch (Exception ex) 
+	    catch (Exception e) 
 	    {
 	        return true;
 	    }
