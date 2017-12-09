@@ -1,13 +1,7 @@
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
-import java.io.File;
-import java.io.IOException;
-
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.*;
 
 public class Spammer implements Runnable
 {
@@ -29,7 +23,7 @@ public class Spammer implements Runnable
 		try
 		{
 			bot = createWindow();
-			placeBrowsers(bot);
+			placeBrowser(bot);
 			navigateToSpam(bot);
 			
 			//Thread is kept alive until the browser closes
@@ -48,15 +42,7 @@ public class Spammer implements Runnable
 	private WebDriver createWindow()
 	{	
 		//Allows use of ChromeDriver
-		File folder = new File("./chromedriver.exe");
-		try
-		{
-			System.setProperty("webdriver.chrome.driver", folder.getCanonicalPath());
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
+		System.setProperty("webdriver.chrome.driver", "./chromedriver.exe");
 		
 		//Blocks developer pop-up
 		ChromeOptions options = new ChromeOptions();
@@ -74,17 +60,16 @@ public class Spammer implements Runnable
 		bot.get("https://github.com/mattson543");
 	}
 	
-	private void placeBrowsers(WebDriver bot)
+	private void placeBrowser(WebDriver bot)
 	{
 		//Local Variables
 		Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
-		double widthOfScreen = screenSize.getWidth(), heightOfScreen = screenSize.getHeight();
 		double browserWidth, browserHeight;
-		int widthSlot = 0, heightSlot = 0, numOfRows, lastRow, browsersPerRow;
+		int widthSlot, heightSlot, numOfRows, lastRow, browsersPerRow;
 		Point browserPosition;
- 
+		
 		//Determine number of rows
-		numOfRows = (int)Math.sqrt(totalBrowsers);
+		numOfRows = (int) Math.sqrt(totalBrowsers);
 		
 		//Determine number of browsers in each row
 		browsersPerRow = (int) Math.ceil((double)totalBrowsers / numOfRows);
@@ -96,12 +81,14 @@ public class Spammer implements Runnable
 			lastRow = totalBrowsers % browsersPerRow;
 		
 		//Determine size
-		if (browserIndex + 1 > (totalBrowsers - lastRow))
-			browserWidth = widthOfScreen/lastRow;
-		else
-			browserWidth = widthOfScreen/browsersPerRow;
+		browserWidth = screenSize.getWidth();
 		
-		browserHeight = heightOfScreen/numOfRows;
+		if (browserIndex + 1 > (totalBrowsers - lastRow))
+			browserWidth /= lastRow;
+		else
+			browserWidth /= browsersPerRow;
+		
+		browserHeight = screenSize.getHeight() / numOfRows;
 		
 		//Set size
 		bot.manage().window().setSize(new Dimension((int)browserWidth, (int)browserHeight));
