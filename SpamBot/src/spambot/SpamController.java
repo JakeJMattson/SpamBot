@@ -1,3 +1,11 @@
+/*
+ * Project Description:
+ * Create 'n' browsers, if any of the browsers in the set is closed, create (n + 1) browsers
+ * 
+ * Class Description:
+ * Creates a group of browsers
+ */
+
 package spambot;
 
 public class SpamController
@@ -8,7 +16,7 @@ public class SpamController
 		driver.beginSpam();
 	}
 
-	public void beginSpam()
+	private void beginSpam()
 	{
 		//Arbitrary limit - can be changed
 		int spammerLimit = 12;

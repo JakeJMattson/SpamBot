@@ -1,3 +1,8 @@
+/*
+ * Class Description:
+ * Creates and controls an individual browser.
+ */
+
 package spambot;
 
 import java.awt.GraphicsEnvironment;
