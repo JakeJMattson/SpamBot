@@ -1,8 +1,3 @@
-/*
- * Class Description:
- * Creates and controls an individual browser.
- */
-
 package spambot;
 
 import java.awt.GraphicsEnvironment;
@@ -13,29 +8,60 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Spammer implements Runnable
+/**
+ * Creates and controls an individual browser.
+ *
+ * @author mattson543
+ */
+public class Browser implements Runnable
 {
+	/**
+	 * WebDriver to control the browser
+	 */
 	private WebDriver bot;
+	/**
+	 * Total number of active browsers
+	 */
 	private final int totalBrowsers;
+	/**
+	 * The index of this browser
+	 */
 	private final int browserIndex;
+	/**
+	 * Whether or not the browser has closed
+	 */
 	private boolean isAlive = true;
 
-	public Spammer(int totalBrowsers, int browserIndex)
+	public Browser(int totalBrowsers, int browserIndex)
 	{
 		this.totalBrowsers = totalBrowsers;
 		this.browserIndex = browserIndex;
 	}
 
+	/**
+	 * TODO
+	 *
+	 * @return Status
+	 */
 	public boolean isAlive()
 	{
 		return isAlive;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Runnable#run()
+	 */
 	@Override
 	public void run()
 	{
+		//Allows use of ChromeDriver
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+
+		//Creates window
+		bot = new ChromeDriver();
+
 		//Initial setup
-		createBot();
 		placeBrowser();
 		navigateToSpam();
 
@@ -46,21 +72,18 @@ public class Spammer implements Runnable
 		kill();
 	}
 
-	private void createBot()
-	{
-		//Allows use of ChromeDriver
-		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-
-		//Creates window
-		bot = new ChromeDriver();
-	}
-
+	/**
+	 * Destination of the browser
+	 */
 	private void navigateToSpam()
 	{
 		//Put your spam here
 		bot.get("https://github.com/mattson543");
 	}
 
+	/**
+	 * Dynamically place the browser on the screen
+	 */
 	private void placeBrowser()
 	{
 		//Determine number of rows
@@ -97,19 +120,27 @@ public class Spammer implements Runnable
 		bot.manage().window().setPosition(browserPosition);
 	}
 
+	/**
+	 * Prevent the Thread from completing and closing the browser
+	 */
 	private void keepAlive()
 	{
 		boolean running = true;
 		while (running)
 		{
-			running = !isClosed(bot);
+			running = !isClosed();
 
 			if (Thread.interrupted())
 				return;
 		}
 	}
 
-	private boolean isClosed(WebDriver bot)
+	/**
+	 * Determine whether or not the browser has already closed
+	 *
+	 * @return Status
+	 */
+	private boolean isClosed()
 	{
 		//Check to see if browser is closed
 		//There is currently no good way to do this
@@ -124,6 +155,9 @@ public class Spammer implements Runnable
 		}
 	}
 
+	/**
+	 * Dispose of the browser and the driver
+	 */
 	public void kill()
 	{
 		isAlive = false;

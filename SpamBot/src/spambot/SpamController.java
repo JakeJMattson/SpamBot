@@ -1,57 +1,61 @@
 /*
  * Project Description:
- * Create 'n' browsers, if any of the browsers in the set is closed, create (n + 1) browsers
- * 
- * Class Description:
- * Creates a group of browsers
+ * Create 'n' browsers, if any of the browsers in the set is closed,
+ * create (n + 1) browsers
  */
 
 package spambot;
 
+/**
+ * Creates a group of browsers
+ *
+ * @author mattson543
+ */
 public class SpamController
 {
 	public static void main(String[] args)
 	{
-		SpamController driver = new SpamController();
-		driver.beginSpam();
-	}
-
-	private void beginSpam()
-	{
 		//Arbitrary limit - can be changed
-		int spammerLimit = 12;
+		int browserLimit = 12;
 
 		//Create initial window
-		Spammer[] spammers = createSpammers(1);
+		Browser[] browsers = createBrowsers(1);
 
-		while (spammers.length <= spammerLimit)
-			for (Spammer spammer : spammers)
-				if (!spammer.isAlive())
+		while (browsers.length <= browserLimit)
+			for (Browser browser : browsers)
+				if (!browser.isAlive())
 				{
 					//If any browsers were closed, kill the others
-					for (Spammer spammerInSet : spammers)
-						spammerInSet.kill();
+					for (Browser browserInSet : browsers)
+						browserInSet.kill();
 
 					//Resize array and create new browsers
-					spammers = createSpammers(spammers.length + 1);
+					browsers = createBrowsers(browsers.length + 1);
 
 					break;
 				}
 	}
 
-	private Spammer[] createSpammers(int spammerCount)
+	/**
+	 * Create and start an array of browsers for monitoring
+	 *
+	 * @param browserCount
+	 *            Number of browsers to create
+	 * @return Browsers
+	 */
+	private static Browser[] createBrowsers(int browserCount)
 	{
-		Spammer[] spammers = new Spammer[spammerCount];
+		Browser[] browsers = new Browser[browserCount];
 
-		for (int i = 0; i < spammers.length; i++)
+		for (int i = 0; i < browsers.length; i++)
 		{
-			//Create Spammer(total, index)
-			spammers[i] = new Spammer(spammers.length, i);
+			//Create Browser(total, index)
+			browsers[i] = new Browser(browsers.length, i);
 
-			//Start a thread for each Spammer
-			new Thread(spammers[i]).start();
+			//Start a thread for each browser
+			new Thread(browsers[i]).start();
 		}
 
-		return spammers;
+		return browsers;
 	}
 }
