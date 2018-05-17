@@ -39,7 +39,7 @@ public class Browser implements Runnable
 	}
 
 	/**
-	 * TODO
+	 * Externally called - check if browser is still open
 	 *
 	 * @return Status
 	 */
@@ -55,9 +55,6 @@ public class Browser implements Runnable
 	@Override
 	public void run()
 	{
-		//Allows use of ChromeDriver
-		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-
 		//Creates window
 		bot = new ChromeDriver();
 
@@ -143,7 +140,7 @@ public class Browser implements Runnable
 	private boolean isClosed()
 	{
 		//Check to see if browser is closed
-		//There is currently no good way to do this
+		//There is currently no official way to do this
 		try
 		{
 			bot.getCurrentUrl();

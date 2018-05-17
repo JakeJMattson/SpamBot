@@ -15,6 +15,11 @@ public class SpamController
 {
 	public static void main(String[] args)
 	{
+		//Allows use of WebDrivers
+		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		System.setProperty("webdriver.firefox.marionette", "geckodriver.exe");
+		System.setProperty("webdriver.edge.driver", "MicrosoftWebDriver.exe");
+
 		//Arbitrary limit - can be changed
 		int browserLimit = 12;
 
