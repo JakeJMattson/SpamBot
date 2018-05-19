@@ -6,6 +6,8 @@ If any of the browsers in the set is closed,
 create (n + 1) browsers and display them dynamically so that they occupy the entire screen and do not overlap.
 </p>
 
+<img src="SpamBot/demo/demo.png" width="100%"/>
+
 ## Prerequisites
 
 ### Java
