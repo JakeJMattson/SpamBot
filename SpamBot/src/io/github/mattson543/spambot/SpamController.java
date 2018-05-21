@@ -4,7 +4,7 @@
  * create (n + 1) browsers
  */
 
-package spambot;
+package io.github.mattson543.spambot;
 
 /**
  * Creates a group of browsers

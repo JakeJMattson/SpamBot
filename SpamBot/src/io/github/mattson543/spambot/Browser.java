@@ -1,4 +1,4 @@
-package spambot;
+package io.github.mattson543.spambot;
 
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
