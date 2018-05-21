@@ -1,9 +1,9 @@
 # SpamBot
 <p align="justify">
 This program allows you to create multiplying automated browsers. 
-Create 'n' browsers that all navigate to a pre-determined site or perform a certain action.
-If any of the browsers in the set is closed, 
-create (n + 1) browsers and display them dynamically so that they occupy the entire screen and do not overlap.
+Create a set of browsers that each navigate to a pre-determined site or perform a certain action.
+If any browser in the set is closed, create a new set of browsers that is one larger than the previous set.
+They will be displayed dynamically based on the size of the set so that they occupy the entire screen and do not overlap.
 </p>
 
 <img src="SpamBot/demo/demo.png" width="100%"/>
