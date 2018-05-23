@@ -14,7 +14,7 @@ They will be displayed dynamically based on the size of the set so that they occ
 * [Java Downloads](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 ### Libraries
-* [Selenium WebDriver](https://www.seleniumhq.org/download/)
+* [Selenium WebDriver](https://www.seleniumhq.org)
 
 ## Getting Started (Software)
 
@@ -26,7 +26,8 @@ The minimum compiler compliance is Java 1.8, meaning that systems with installat
 
 ### Setting up Selenium
 <p align="justify">
-To use the Selenium WebDriver, first download the Java language bindings from the link above.
+To use the Selenium WebDriver, first download the Java
+<a href="https://www.seleniumhq.org/download/">language bindings</a>.
 Next, download the WebDriver binaries of your choice for your desired browser. 
 The code is currently configured for 
 <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">Google Chrome</a>, 
