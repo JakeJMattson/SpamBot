@@ -1,13 +1,7 @@
-/*
- * Project Description:
- * Create 'n' browsers, if any of the browsers in the set is closed,
- * create (n + 1) browsers
- */
-
 package io.github.mattson543.spambot;
 
 /**
- * Creates a group of browsers
+ * Creates a group of browsers.
  *
  * @author mattson543
  */
@@ -15,52 +9,52 @@ public class SpamController
 {
 	public static void main(String[] args)
 	{
-		//Allows use of WebDrivers
+		//Allow use of WebDrivers
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		System.setProperty("webdriver.firefox.marionette", "geckodriver.exe");
 		System.setProperty("webdriver.edge.driver", "MicrosoftWebDriver.exe");
 
-		//Arbitrary limit - can be changed
-		int browserLimit = 12;
+		//Arbitrary limit
+		int threadLimit = 12;
 
 		//Create initial window
-		Browser[] browsers = createBrowsers(1);
+		Thread[] threads = createThreads(1);
 
-		while (browsers.length <= browserLimit)
-			for (Browser browser : browsers)
-				if (!browser.isAlive())
+		while (threads.length < threadLimit)
+			for (Thread thread1 : threads)
+				if (!thread1.isAlive())
 				{
-					//If any browsers were closed, kill the others
-					for (Browser browserInSet : browsers)
-						browserInSet.kill();
+					//If any browsers in the set were closed, kill the others
+					for (Thread thread2 : threads)
+						thread2.interrupt();
 
-					//Resize array and create new browsers
-					browsers = createBrowsers(browsers.length + 1);
+					//Create new set of threads
+					threads = createThreads(threads.length + 1);
 
 					break;
 				}
 	}
 
 	/**
-	 * Create and start an array of browsers for monitoring
+	 * Create and start an array of threads for monitoring.
 	 *
-	 * @param browserCount
-	 *            Number of browsers to create
-	 * @return Browsers
+	 * @param threadCount
+	 *            Number of threads to create
+	 * @return Threads
 	 */
-	private static Browser[] createBrowsers(int browserCount)
+	private static Thread[] createThreads(int threadCount)
 	{
-		Browser[] browsers = new Browser[browserCount];
+		Thread[] threads = new Thread[threadCount];
 
-		for (int i = 0; i < browsers.length; i++)
+		for (int i = 0; i < threads.length; i++)
 		{
-			//Create Browser(total, index)
-			browsers[i] = new Browser(browsers.length, i);
+			//Create a Browser for each thread
+			threads[i] = new Thread(new Browser(threads.length, i));
 
-			//Start a thread for each browser
-			new Thread(browsers[i]).start();
+			//Start
+			threads[i].start();
 		}
 
-		return browsers;
+		return threads;
 	}
 }

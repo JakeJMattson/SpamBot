@@ -3,9 +3,9 @@ package io.github.mattson543.spambot;
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
 
+import org.openqa.selenium.*;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
@@ -16,10 +16,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Browser implements Runnable
 {
 	/**
-	 * WebDriver to control the browser
-	 */
-	private WebDriver bot;
-	/**
 	 * Total number of active browsers
 	 */
 	private final int totalBrowsers;
@@ -27,25 +23,11 @@ public class Browser implements Runnable
 	 * The index of this browser
 	 */
 	private final int browserIndex;
-	/**
-	 * Whether or not the browser has closed
-	 */
-	private boolean isAlive = true;
 
 	public Browser(int totalBrowsers, int browserIndex)
 	{
 		this.totalBrowsers = totalBrowsers;
 		this.browserIndex = browserIndex;
-	}
-
-	/**
-	 * Externally called - check if browser is still open
-	 *
-	 * @return Status
-	 */
-	public boolean isAlive()
-	{
-		return isAlive;
 	}
 
 	/*
@@ -55,33 +37,34 @@ public class Browser implements Runnable
 	@Override
 	public void run()
 	{
-		//Creates window
-		bot = new ChromeDriver();
+		//Create window
+		WebDriver bot = new ChromeDriver();
 
 		//Initial setup
-		placeBrowser();
-		navigateToSpam();
+		placeBrowser(bot);
+		navigateToSpam(bot);
 
-		//Thread is kept alive until the browser closes
-		keepAlive();
-
-		//Call automatically if this browser is closed
-		kill();
+		//Keep thread alive until the browser closes
+		keepAlive(bot);
 	}
 
 	/**
-	 * Destination of the browser
+	 * Destination of the browser.
+	 *
+	 * @param bot
 	 */
-	private void navigateToSpam()
+	private void navigateToSpam(WebDriver bot)
 	{
 		//Put your spam here
 		bot.get("https://github.com/mattson543");
 	}
 
 	/**
-	 * Dynamically place the browser on the screen
+	 * Dynamically place the browser on the screen.
+	 *
+	 * @param bot
 	 */
-	private void placeBrowser()
+	private void placeBrowser(WebDriver bot)
 	{
 		//Determine number of rows
 		int numOfRows = (int) Math.sqrt(totalBrowsers);
@@ -118,54 +101,23 @@ public class Browser implements Runnable
 	}
 
 	/**
-	 * Prevent the Thread from completing and closing the browser
-	 */
-	private void keepAlive()
-	{
-		boolean running = true;
-		while (running)
-		{
-			running = !isClosed();
-
-			if (Thread.interrupted())
-				return;
-		}
-	}
-
-	/**
-	 * Determine whether or not the browser has already closed
+	 * Prevent the Thread from completing and closing the browser.
 	 *
-	 * @return Status
+	 * @param bot
 	 */
-	private boolean isClosed()
+	private void keepAlive(WebDriver bot)
 	{
-		//Check to see if browser is closed
-		//There is currently no official way to do this
-		try
-		{
-			bot.getCurrentUrl();
-			return false;
-		}
-		catch (Exception e)
-		{
-			return true;
-		}
-	}
+		while (!Thread.interrupted())
+			try
+			{
+				bot.getCurrentUrl();
+			}
+			catch (WebDriverException e)
+			{
+				Thread.currentThread().interrupt();
+			}
 
-	/**
-	 * Dispose of the browser and the driver
-	 */
-	public void kill()
-	{
-		isAlive = false;
-
-		try
-		{
-			bot.quit();
-		}
-		catch (Exception e)
-		{
-
-		}
+		//Cleanup when finished
+		bot.quit();
 	}
 }
