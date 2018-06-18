@@ -1,4 +1,20 @@
 # SpamBot
+
+<p align="center">
+	<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">
+    <img src="https://img.shields.io/badge/Java-8-blue.svg" alt="Java 8">
+  </a>
+  <a href="https://goo.gl/LtVMqu">
+    <img src="https://img.shields.io/badge/Selenium-3.12.0-blue.svg">
+  </a>
+  <a href="https://chromedriver.storage.googleapis.com/index.html?path=2.40/">
+    <img src="https://img.shields.io/badge/ChromeDriver-2.40-blue.svg">
+  </a>
+  <a href="LICENSE.md">
+    <img src="https://img.shields.io/github/license/mattson543/SpamBot.svg">
+  </a>
+</p>
+
 <p align="justify">
 This program allows you to create multiplying automated browsers. 
 Create a set of browsers that each navigate to a pre-determined site or perform a certain action.
@@ -10,28 +26,30 @@ They will be displayed dynamically based on the size of the set so that they occ
 
 ## Prerequisites
 
-### Java
-* [Java Downloads](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+### Languages
+* [Java](https://go.java/index.html?intcmp=gojava-banner-java-com)
 
 ### Libraries
-* [Selenium WebDriver](https://www.seleniumhq.org)
+* [Selenium](https://www.seleniumhq.org/)
 
-## Getting Started (Software)
+## Getting Started
+<p align="justify">
+The minimum version requirements for each additional software are listed in the badges at the top of the readme.
+It is recommended that you install the most updated version at your time of installation.
+</p>
 
 ### Installing Java
 <p align="justify">
-To install the Java Development Kit (JDK), please download your desired version from the link above and run the installer.
-The minimum compiler compliance is Java 1.8, meaning that systems with installations of Java 8 and above can develop with this code.
+Visit the <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Downloads</a> 
+page and select the version of your choice.
+Run the installer and follow the instructions provided.
 </p>
 
 ### Setting up Selenium
 <p align="justify">
-To use the Selenium WebDriver, first download the Java
-<a href="https://www.seleniumhq.org/download/">language bindings</a>.
-Next, download the WebDriver binaries of your choice for your desired browser. 
-The code is currently configured for 
-<a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">Google Chrome</a>, 
-but can be configured for the browser of your choice.
+To use Selenium, you will need to download the Java language bindings and a WebDriver binary of your choosing.
+Both can be found on the <a href="https://www.seleniumhq.org/download/">Selenium Downloads</a> page.
+The code is currently configured for Google Chrome, but can be easily configured for the browser of your choice.
 </p>
 
 ## License
