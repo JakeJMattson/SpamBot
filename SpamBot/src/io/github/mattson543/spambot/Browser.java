@@ -82,13 +82,11 @@ public class Browser implements Runnable
 
 		//Determine size
 		Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
-		double browserHeight = screenSize.getHeight() / numOfRows;
+		double browserHeight = Math.round(screenSize.getHeight() / numOfRows);
 		double browserWidth = screenSize.getWidth();
 
-		if (browserIndex + 1 > totalBrowsers - lastRow)
-			browserWidth /= lastRow;
-		else
-			browserWidth /= browsersPerRow;
+		int divisor = browserIndex + 1 > totalBrowsers - lastRow ? lastRow : browsersPerRow;
+		browserWidth = Math.round(browserWidth / divisor);
 
 		//Set size
 		bot.manage().window().setSize(new Dimension((int) browserWidth, (int) browserHeight));
