@@ -52,6 +52,7 @@ public class Browser implements Runnable
 	 * Destination of the browser.
 	 *
 	 * @param bot
+	 *            WebDriver instance
 	 */
 	private void navigateToSpam(WebDriver bot)
 	{
@@ -63,6 +64,7 @@ public class Browser implements Runnable
 	 * Dynamically place the browser on the screen.
 	 *
 	 * @param bot
+	 *            WebDriver instance
 	 */
 	private void placeBrowser(WebDriver bot)
 	{
@@ -104,6 +106,7 @@ public class Browser implements Runnable
 	 * Prevent the Thread from completing and closing the browser.
 	 *
 	 * @param bot
+	 *            WebDriver instance
 	 */
 	private void keepAlive(WebDriver bot)
 	{

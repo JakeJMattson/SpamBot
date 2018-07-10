@@ -11,8 +11,6 @@ public class SpamController
 	{
 		//Allow use of WebDrivers
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-		System.setProperty("webdriver.firefox.marionette", "geckodriver.exe");
-		System.setProperty("webdriver.edge.driver", "MicrosoftWebDriver.exe");
 
 		//Arbitrary limit
 		int threadLimit = 12;
@@ -21,12 +19,12 @@ public class SpamController
 		Thread[] threads = createThreads(1);
 
 		while (threads.length < threadLimit)
-			for (Thread thread1 : threads)
-				if (!thread1.isAlive())
+			for (Thread currentThread : threads)
+				if (!currentThread.isAlive())
 				{
 					//If any browsers in the set were closed, kill the others
-					for (Thread thread2 : threads)
-						thread2.interrupt();
+					for (Thread deadThread : threads)
+						deadThread.interrupt();
 
 					//Create new set of threads
 					threads = createThreads(threads.length + 1);
