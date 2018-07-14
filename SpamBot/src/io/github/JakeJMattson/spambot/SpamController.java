@@ -1,9 +1,9 @@
-package io.github.mattson543.spambot;
+package io.github.JakeJMattson.spambot;
 
 /**
  * Creates a group of browsers.
  *
- * @author mattson543
+ * @author JakeJMattson
  */
 public class SpamController
 {

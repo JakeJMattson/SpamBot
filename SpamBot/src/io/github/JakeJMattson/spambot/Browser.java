@@ -1,4 +1,4 @@
-package io.github.mattson543.spambot;
+package io.github.JakeJMattson.spambot;
 
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 /**
  * Creates and controls an individual browser.
  *
- * @author mattson543
+ * @author JakeJMattson
  */
 public class Browser implements Runnable
 {
@@ -57,7 +57,7 @@ public class Browser implements Runnable
 	private void navigateToSpam(WebDriver bot)
 	{
 		//Put your spam here
-		bot.get("https://github.com/mattson543");
+		bot.get("https://github.com/JakeJMattson");
 	}
 
 	/**
