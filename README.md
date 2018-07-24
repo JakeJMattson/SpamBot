@@ -9,7 +9,7 @@
     <img src="https://img.shields.io/badge/ChromeDriver-2.40-blue.svg">
   </a>
   <a href="LICENSE.md">
-    <img src="https://img.shields.io/github/license/mattson543/SpamBot.svg">
+    <img src="https://img.shields.io/github/license/JakeJMattson/SpamBot.svg">
   </a>
 </p>
 
