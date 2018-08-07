@@ -20,7 +20,7 @@ If any browser in the set is closed, create a new set of browsers that is one la
 They will be displayed dynamically based on the size of the set so that they occupy the entire screen and do not overlap.
 </p>
 
-<img src="SpamBot/demo/demo.png" width="100%"/>
+<img src="https://user-images.githubusercontent.com/22604455/43761280-411562ce-99ea-11e8-9ae9-d3739b5b5b03.png" width="100%"/>
 
 ## Prerequisites
 
