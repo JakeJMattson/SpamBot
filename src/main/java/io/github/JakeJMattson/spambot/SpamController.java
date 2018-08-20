@@ -1,5 +1,7 @@
 package io.github.JakeJMattson.spambot;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 /**
  * Creates a group of browsers.
  *
@@ -10,7 +12,7 @@ public class SpamController
 	public static void main(String[] args)
 	{
 		//Allow use of WebDrivers
-		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
 
 		//Arbitrary limit
 		int threadLimit = 12;
@@ -37,7 +39,8 @@ public class SpamController
 	 * Create and start an array of threads for monitoring.
 	 *
 	 * @param threadCount
-	 *            Number of threads to create
+	 * 		Number of threads to create
+	 *
 	 * @return Threads
 	 */
 	private static Thread[] createThreads(int threadCount)

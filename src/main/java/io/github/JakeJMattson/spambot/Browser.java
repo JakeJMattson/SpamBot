@@ -1,19 +1,19 @@
 package io.github.JakeJMattson.spambot;
 
-import java.awt.GraphicsEnvironment;
-import java.awt.Rectangle;
-
-import org.openqa.selenium.*;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.awt.*;
+import java.awt.Rectangle;
 
 /**
  * Creates and controls an individual browser.
  *
  * @author JakeJMattson
  */
-public class Browser implements Runnable
+class Browser implements Runnable
 {
 	/**
 	 * Total number of active browsers
@@ -24,7 +24,7 @@ public class Browser implements Runnable
 	 */
 	private final int browserIndex;
 
-	public Browser(int totalBrowsers, int browserIndex)
+	Browser(int totalBrowsers, int browserIndex)
 	{
 		this.totalBrowsers = totalBrowsers;
 		this.browserIndex = browserIndex;
@@ -52,7 +52,7 @@ public class Browser implements Runnable
 	 * Destination of the browser.
 	 *
 	 * @param bot
-	 *            WebDriver instance
+	 * 		WebDriver instance
 	 */
 	private void navigateToSpam(WebDriver bot)
 	{
@@ -64,7 +64,7 @@ public class Browser implements Runnable
 	 * Dynamically place the browser on the screen.
 	 *
 	 * @param bot
-	 *            WebDriver instance
+	 * 		WebDriver instance
 	 */
 	private void placeBrowser(WebDriver bot)
 	{
@@ -104,7 +104,7 @@ public class Browser implements Runnable
 	 * Prevent the Thread from completing and closing the browser.
 	 *
 	 * @param bot
-	 *            WebDriver instance
+	 * 		WebDriver instance
 	 */
 	private void keepAlive(WebDriver bot)
 	{
