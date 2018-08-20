@@ -2,11 +2,8 @@
   <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">
     <img src="https://img.shields.io/badge/Java-8-blue.svg" alt="Java 8">
   </a>
-  <a href="https://goo.gl/LtVMqu">
-    <img src="https://img.shields.io/badge/Selenium-3.12.0-blue.svg">
-  </a>
-  <a href="https://chromedriver.storage.googleapis.com/index.html?path=2.40/">
-    <img src="https://img.shields.io/badge/ChromeDriver-2.40-blue.svg">
+  <a href="https://docs.seleniumhq.org/download/">
+    <img src="https://img.shields.io/badge/Selenium-3.14.0-blue.svg">
   </a>
   <a href="LICENSE.md">
     <img src="https://img.shields.io/github/license/JakeJMattson/SpamBot.svg">
@@ -44,11 +41,21 @@ Run the installer and follow the instructions provided.
 </p>
 
 ### Setting up Selenium
+**Note:** Included as Maven dependency. Below are manual instructions.
+<br/>
 <p align="justify">
 To use Selenium, you will need to download the Java language bindings and a WebDriver binary of your choosing.
-Both can be found on the <a href="https://www.seleniumhq.org/download/">Selenium Downloads</a> page.
-The code is currently configured for Google Chrome, but can be easily configured for the browser of your choice.
+Both can be found on the <a href="https://www.seleniumhq.org/download/">Selenium Downloads</a> page. This will require several manual code alterations.
 </p>
+
+## Building
+This project is built with Maven. To build the `pom.xml` file, please follow the import instructions for your IDE.
+* [IntelliJ](https://www.tutorialspoint.com/maven/maven_intellij_idea.htm)
+* [Eclipse](https://www.tutorialspoint.com/maven/maven_eclispe_ide.htm)
+* [NetBeans](https://www.tutorialspoint.com/maven/maven_netbeans.htm)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+* [Selenium binaries (Maven)](https://github.com/bonigarcia/webdrivermanager)
