@@ -37,12 +37,11 @@ public class SpamController
 		WebDriverManager.chromedriver().setup();
 
 		//Arbitrary limit
-		int threadLimit = 12;
+		final int MAX_THREADS = 12;
 
-		//Create initial window
 		Thread[] threads = createThreads(1);
 
-		while (threads.length < threadLimit)
+		while (threads.length < MAX_THREADS)
 			for (Thread currentThread : threads)
 				if (!currentThread.isAlive())
 				{
@@ -50,9 +49,7 @@ public class SpamController
 					for (Thread deadThread : threads)
 						deadThread.interrupt();
 
-					//Create new set of threads
 					threads = createThreads(threads.length + 1);
-
 					break;
 				}
 	}
@@ -69,12 +66,9 @@ public class SpamController
 	{
 		Thread[] threads = new Thread[threadCount];
 
-		for (int i = 0; i < threads.length; i++)
+		for (int i = 0; i < threadCount; i++)
 		{
-			//Create a Browser for each thread
 			threads[i] = new Thread(new Browser(threads.length, i));
-
-			//Start
 			threads[i].start();
 		}
 

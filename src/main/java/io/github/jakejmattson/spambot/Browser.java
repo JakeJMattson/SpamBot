@@ -52,21 +52,12 @@ class Browser implements Runnable
 		this.browserIndex = browserIndex;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see java.lang.Runnable#run()
-	 */
 	@Override
 	public void run()
 	{
-		//Create window
 		WebDriver bot = new ChromeDriver();
-
-		//Initial setup
 		placeBrowser(bot);
 		navigateToSpam(bot);
-
-		//Keep thread alive until the browser closes
 		keepAlive(bot);
 	}
 
@@ -76,9 +67,9 @@ class Browser implements Runnable
 	 * @param bot
 	 * 		WebDriver instance
 	 */
-	private void navigateToSpam(WebDriver bot)
+	private static void navigateToSpam(WebDriver bot)
 	{
-		//Put your spam here
+		//TODO Put your spam here
 		bot.get("https://github.com/JakeJMattson");
 	}
 
@@ -90,19 +81,13 @@ class Browser implements Runnable
 	 */
 	private void placeBrowser(WebDriver bot)
 	{
-		//Determine number of rows
 		int numOfRows = (int) Math.sqrt(totalBrowsers);
-
-		//Determine number of browsers in each row
 		int browsersPerRow = (int) Math.ceil((double) totalBrowsers / numOfRows);
-
-		//Determine number of browsers in last row
 		int lastRow = totalBrowsers % browsersPerRow;
 
 		if (lastRow == 0)
 			lastRow = browsersPerRow;
 
-		//Determine size
 		Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
 		double browserHeight = Math.round(screenSize.getHeight() / numOfRows);
 		double browserWidth = screenSize.getWidth();
@@ -110,14 +95,11 @@ class Browser implements Runnable
 		int divisor = browserIndex + 1 > totalBrowsers - lastRow ? lastRow : browsersPerRow;
 		browserWidth = Math.round(browserWidth / divisor);
 
-		//Set size
 		bot.manage().window().setSize(new Dimension((int) browserWidth, (int) browserHeight));
 
-		//Determine position
 		int widthSlot = (int) (browserWidth * (browserIndex % browsersPerRow));
 		int heightSlot = (int) (browserHeight * (browserIndex / browsersPerRow));
 
-		//Set position
 		Point browserPosition = new Point(widthSlot, heightSlot);
 		bot.manage().window().setPosition(browserPosition);
 	}
@@ -128,7 +110,7 @@ class Browser implements Runnable
 	 * @param bot
 	 * 		WebDriver instance
 	 */
-	private void keepAlive(WebDriver bot)
+	private static void keepAlive(WebDriver bot)
 	{
 		while (!Thread.interrupted())
 			try
@@ -140,7 +122,6 @@ class Browser implements Runnable
 				Thread.currentThread().interrupt();
 			}
 
-		//Cleanup when finished
 		bot.quit();
 	}
 }
