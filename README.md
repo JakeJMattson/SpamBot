@@ -3,7 +3,10 @@
     <img src="https://img.shields.io/badge/Java-8-blue.svg" alt="Java 8">
   </a>
   <a href="https://docs.seleniumhq.org/download/">
-    <img src="https://img.shields.io/badge/Selenium-3.14.0-blue.svg">
+    <img src="https://img.shields.io/badge/Selenium-3.141.0-blue.svg">
+  </a>
+  <a href="https://github.com/bonigarcia/webdrivermanager/">
+    <img src="https://img.shields.io/badge/WebDriverManager-3.0.0-blue.svg">
   </a>
   <a href="LICENSE.md">
     <img src="https://img.shields.io/github/license/JakeJMattson/SpamBot.svg">
@@ -55,6 +58,3 @@ This project is built with Maven. To build the `pom.xml` file, please follow the
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-* [Selenium binaries (Maven)](https://github.com/bonigarcia/webdrivermanager)
