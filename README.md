@@ -3,10 +3,10 @@
     <img src="https://img.shields.io/badge/Java-8-blue.svg" alt="Java 8">
   </a>
   <a href="https://docs.seleniumhq.org/download/">
-    <img src="https://img.shields.io/badge/Selenium-3.141.0-blue.svg">
+    <img src="https://img.shields.io/badge/Selenium-3.141.59-blue.svg">
   </a>
   <a href="https://github.com/bonigarcia/webdrivermanager/">
-    <img src="https://img.shields.io/badge/WebDriverManager-3.0.0-blue.svg">
+    <img src="https://img.shields.io/badge/WebDriverManager-3.1.1-blue.svg">
   </a>
   <a href="LICENSE.md">
     <img src="https://img.shields.io/github/license/JakeJMattson/SpamBot.svg">
