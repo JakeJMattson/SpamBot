@@ -29,6 +29,7 @@ They will be displayed dynamically based on the size of the set so that they occ
 
 ### Libraries
 * [Selenium](https://www.seleniumhq.org/)
+* [WebDriverManager](https://github.com/bonigarcia/webdrivermanager)
 
 ## Getting Started
 ### Installing Java
