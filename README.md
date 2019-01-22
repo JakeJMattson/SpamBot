@@ -6,7 +6,7 @@
     <img src="https://img.shields.io/badge/Selenium-3.141.59-blue.svg">
   </a>
   <a href="https://github.com/bonigarcia/webdrivermanager/">
-    <img src="https://img.shields.io/badge/WebDriverManager-3.1.1-blue.svg">
+    <img src="https://img.shields.io/badge/WebDriverManager-3.2.0-blue.svg">
   </a>
   <a href="LICENSE.md">
     <img src="https://img.shields.io/github/license/JakeJMattson/SpamBot.svg">
