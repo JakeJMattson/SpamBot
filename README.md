@@ -1,12 +1,12 @@
 <p align="center">
-  <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">
-    <img src="https://img.shields.io/badge/Java-8-blue.svg" alt="Java 8">
+  <a href="https://jdk.java.net/11/">
+    <img src="https://img.shields.io/badge/Java-11-blue.svg" alt="Java 11">
   </a>
   <a href="https://docs.seleniumhq.org/download/">
     <img src="https://img.shields.io/badge/Selenium-3.141.59-blue.svg">
   </a>
   <a href="https://github.com/bonigarcia/webdrivermanager/">
-    <img src="https://img.shields.io/badge/WebDriverManager-3.2.0-blue.svg">
+    <img src="https://img.shields.io/badge/WebDriverManager-3.3.0-blue.svg">
   </a>
   <a href="LICENSE.md">
     <img src="https://img.shields.io/github/license/JakeJMattson/SpamBot.svg">
@@ -25,7 +25,7 @@ They will be displayed dynamically based on the size of the set so that they occ
 ## Prerequisites
 
 ### Languages
-* [Java](https://go.java/index.html?intcmp=gojava-banner-java-com)
+* [Java](https://jdk.java.net/11/)
 
 ### Libraries
 * [Selenium](https://www.seleniumhq.org/)
@@ -34,8 +34,7 @@ They will be displayed dynamically based on the size of the set so that they occ
 ## Getting Started
 ### Installing Java
 <p align="justify">
-Visit the <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Downloads</a> 
-page and select the version of your choice.
+Visit the <a href="https://jdk.java.net/11/">Java Downloads</a> page and select the version of your choice.
 Run the installer and follow the instructions provided.
 </p>
 
@@ -43,7 +42,6 @@ Run the installer and follow the instructions provided.
 This project is built with Maven. To build the `pom.xml` file, please follow the import instructions for your IDE.
 * [IntelliJ](https://www.tutorialspoint.com/maven/maven_intellij_idea.htm)
 * [Eclipse](https://www.tutorialspoint.com/maven/maven_eclispe_ide.htm)
-* [NetBeans](https://www.tutorialspoint.com/maven/maven_netbeans.htm)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
