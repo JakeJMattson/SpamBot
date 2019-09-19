@@ -13,9 +13,9 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Version Numbers -->
-        <java.version>11</java.version>
+        <java.version>13</java.version>
         <selenium.version>3.141.59</selenium.version>
-        <webdrivermanager.version>3.4.0</webdrivermanager.version>
+        <webdrivermanager.version>3.7.1</webdrivermanager.version>
 
         <!-- Compiler -->
         <maven.compiler.source>${java.version}</maven.compiler.source>

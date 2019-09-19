@@ -1,15 +1,15 @@
 <p align="center">
-  <a href="https://jdk.java.net/11/">
-    <img src="https://img.shields.io/badge/Java-11-blue.svg" alt="Java 11">
+  <a href="https://jdk.java.net/13/">
+    <img src="https://img.shields.io/badge/Java-13-blue.svg" alt="Java 13">
   </a>
   <a href="https://docs.seleniumhq.org/download/">
-    <img src="https://img.shields.io/badge/Selenium-3.141.59-blue.svg">
+    <img src="https://img.shields.io/badge/Selenium-3.141.59-blue.svg" alt="Selenium">
   </a>
   <a href="https://github.com/bonigarcia/webdrivermanager/">
-    <img src="https://img.shields.io/badge/WebDriverManager-3.4.0-blue.svg">
+    <img src="https://img.shields.io/badge/WebDriverManager-3.7.1-blue.svg" alt="WebDriverManager">
   </a>
   <a href="LICENSE.md">
-    <img src="https://img.shields.io/github/license/JakeJMattson/SpamBot.svg">
+    <img src="https://img.shields.io/github/license/JakeJMattson/SpamBot.svg" alt="License">
   </a>
 </p>
 
