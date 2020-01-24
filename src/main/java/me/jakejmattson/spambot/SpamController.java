@@ -1,4 +1,4 @@
-package io.github.jakejmattson.spambot;
+package me.jakejmattson.spambot;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 

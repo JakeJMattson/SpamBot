@@ -1,4 +1,4 @@
-package io.github.jakejmattson.spambot;
+package me.jakejmattson.spambot;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
