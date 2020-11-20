@@ -1,17 +1,3 @@
-### Intellij ###
 .idea/
-target/
-*.iml
-*.iws
-*.ipr
-
-### Java ###
-# Binaries #
-*.class
-*.jar
-*.exe
-
-# Package Files #
-*.zip
-*.tar.gz
-*.rar
+.gradle
+build
